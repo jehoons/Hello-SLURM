@@ -2,7 +2,7 @@
 #SBATCH --job-name=HELLO
 #SBATCH --workdir=/tmp
 #SBATCH --ntasks-per-node=1
-#SBATCH --array=1-50
+#SBATCH --array=1-5
 #SBATCH --nodes=1
 #SBATCH --time=100:00
 #SBATCH --output=slurm-%A_%a.log

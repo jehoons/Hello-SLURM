@@ -2,7 +2,7 @@
 #SBATCH --job-name=HELLO
 ##SBATCH --workdir=/home/root
 #SBATCH --ntasks-per-node=1
-#SBATCH --array=1-1000
+#SBATCH --array=1-10
 #SBATCH --nodes=1
 #SBATCH --time=100:00
 #SBATCH --output=slurm-%A_%a.log
@@ -30,8 +30,8 @@ HASH=`md5sum ${OUTPUT} | awk '{ print $1 }'`
 #curl --user "tableshare:sait2012$" -X MKCOL "http://192.168.0.89:5005/homes/tableshare/archive/${HASH}"
 #curl --user "tableshare:sait2012$" -T "${TEMP_WD}/${OUTPUT}" "http://192.168.0.89:5005/homes/tableshare/archive/${HASH}/"
 UPLOAD_DIR="http://192.168.0.89:5005/homes/tableshare/slurm/${JOB_ID}"
-curl --user "tableshare:sait2012$" -X MKCOL "${UPLOAD_DIR}"
-curl --user "tableshare:sait2012$" -T "${TEMP_WD}/${OUTPUT}" "${UPLOAD_DIR}/"
+curl --user "tableshare:sait2012$" -X MKCOL ${UPLOAD_DIR}
+curl --user "tableshare:sait2012$" -T ${TEMP_WD}/${OUTPUT} ${UPLOAD_DIR}/
 
 echo "Bye!"
 

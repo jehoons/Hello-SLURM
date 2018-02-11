@@ -1,5 +1,5 @@
 # Hello-SLURM
 
 ```
-sbatch HELLO-ARRAY-JOB.sh
+sbatch hello-single.job.sh
 ```
